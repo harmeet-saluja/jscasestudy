@@ -16,7 +16,12 @@
         </div>
 
         <div class="container task-operation">
-            <button id='delete' onclick="view.delete();">Delete</button>&nbsp; <button id='toggle' onclick="view.toggle();">Toggle</button>
+            <button id='delete' onclick="view.delete();">Delete</button>&nbsp; <button id='toggle' onclick="view.toggle();">Toggle</button>&nbsp;
+            <select id="selectTasks" onchange="view.filter();">
+             <option value="1" selected>All</option>
+             <option value="2">In Progress</option>   
+             <option value="3">Completed</option>   
+            </select>
         </div>
 
         <br />

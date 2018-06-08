@@ -66,7 +66,7 @@
          }
          taskOperation.prototype.addTask(title, date);
          taskOperation.prototype.display();
-         view.displayTasks();
+         view.displayTasks(taskOperation.prototype.tasks);
      },
 
      delete: function () {
@@ -77,7 +77,7 @@
                  taskOperation.prototype.delete(position);
              }
          }
-         view.displayTasks();
+         view.displayTasks(taskOperation.prototype.tasks);
      },
 
      deleteAll: function () {
@@ -113,17 +113,18 @@
              }
          }
 
-         view.displayTasks();
+         view.displayTasks(taskOperation.prototype.tasks);
      }
  };
 
  var view = {
-     displayTasks: function () {
+     displayTasks: function (tasks) {
          let display = document.querySelector('[id=table]');
          let table = this.createTable();
          display.innerHTML = '';
          display.appendChild(table);
-         let tasks = taskOperation.prototype.tasks;
+         //         let tasks = taskOperation.prototype.tasks;
+         console.log(tasks);
          tasks.forEach(function (task) {
              let tableTr = document.createElement('tr');
              tableTr.setAttribute('id', tasks.indexOf(task));
@@ -208,7 +209,30 @@
          }
          return message;
 
+     },
+
+     filter: function () {
+         let selectedValue = document.getElementById('selectTasks').value;
+         if (selectedValue === "1") {
+             view.displayTasks(taskOperation.prototype.tasks);
+         }
+         if (selectedValue === "2") {
+             var tasks = taskOperation.prototype.tasks.filter(checkTasksInProgress);
+             view.displayTasks(tasks);
+         }
+         if (selectedValue === "3") {
+             var tasks = taskOperation.prototype.tasks.filter(checkTasksCompleted);
+             view.displayTasks(tasks);
+         }
+
+         function checkTasksCompleted(task) {
+             return task.status == true;
+         }
+
+         function checkTasksInProgress(task) {
+             return task.status == false;
+         }
      }
  }
 
- view.displayTasks();
+ view.displayTasks(taskOperation.prototype.tasks);
