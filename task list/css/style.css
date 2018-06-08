@@ -1,0 +1,51 @@
+body{
+    width: 90%;
+    margin: 10px auto;
+    padding: 0;
+    background-color: gray;
+    color: white;
+    font-size: 20px;
+    font-family: Arial;
+}
+
+.container{
+    width: 80%;
+    margin: 0 auto;
+}
+
+.container.task-addition{
+    width: 70%;
+    margin: 5px auto;
+}
+
+.container.task-operation{
+    width: 20%;
+    margin: 0 auto;
+}
+
+#table{
+    width: 100%;
+    margin: 0 auto;
+}
+
+button{
+    color: white;
+    background-color: teal;
+    height: 30px;
+    width: 60px;
+    text-align: center;
+    font-weight: bold;
+}
+
+button:hover{
+    color: teal;
+    background-color: white;
+    transition: 1s;
+    transform: scale(1.1,1.1);
+}
+
+#table table,tr,td,th{
+    border: 1px solid teal;
+    color: black;
+    background-color: white;
+}
